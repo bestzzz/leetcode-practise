@@ -46,5 +46,17 @@ function createListNode (arr) {
   return listNode;
 }
 
+/**
+ * 遍历打印链表节点
+ * @param {Node} head 
+ */
+function logList (head) {
+  let node = head;
+  while (node) {
+    console.log(node, node.val);
+    node = node.next;
+  }
+}
+
 // export default { createListNode };
-module.exports = { createListNode, ListNode, Node };
+module.exports = { createListNode, ListNode, Node, logList };
