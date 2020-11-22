@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手写练习</title>
+</head>
+<body>
+  <button id="btn">点我</button>
+</body>
+<script>
+  const throttle = (cb, delay) => {
+  let timer = null;
+  let lock = false;
+
+  return function(...arg) {
+    if (lock) {
+      return;
+    }
+    lock = true;
+
+    timer = setTimeout(() => {
+      cb(...arg);
+      lock = false;
+      clearTimeout(timer);
+    }, delay);
+  };
+};
+
+const log = throttle((msg) => {console.log('msg')}, 1000);
+
+  var button = document.getElementById('btn');
+  button.addEventListener('click', log);
+</script>
+</html>
