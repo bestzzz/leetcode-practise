@@ -59,4 +59,38 @@ const deleteDuplicates2 = function(head) {
   return dummy.next;
 };
 
-logListNode(deleteDuplicates2(createListNode2([1,1,1,3,4,5,5])))
+// logListNode(deleteDuplicates2(createListNode2([1,1,1,3,4,5,5])))
+
+
+/**
+ * 给定一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+示例： 给定一个链表: 1->2->3->4->5, 和 n = 2.
+当删除了倒数第二个结点后，链表变为 1->2->3->5.
+说明： 给定的 n 保证是有效的。
+ */
+const removeNthFromEnd = function(head, n) {
+  var dummy = new Node();
+  dummy.next = head;
+
+  var slow = dummy;
+  var fast = dummy;
+  
+  // 快指针先走两步 和慢指针形成n个差距
+  while (n > 0) {
+    fast = fast.next;
+    n--;
+  }
+
+  // 同步走 当快指针走到头时 就可以定位到n的位置就是慢指针所在位置(因为快慢指针间隔为n)
+  while (fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  // 删除当前节点
+  slow.next = slow.next.next;
+  
+  return dummy.next;
+};
+
+// logListNode(removeNthFromEnd(createListNode2([1,1,1,3,4,5,5]), 3))
