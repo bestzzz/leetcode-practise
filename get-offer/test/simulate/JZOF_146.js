@@ -16,6 +16,7 @@
 /**
  * 解题思路：模拟
  * 模拟四面墙 每走完一面墙 则把墙向前移动 当墙交叉时跳出循环
+ * https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/solutions/275707/shou-hui-tu-jie-liang-chong-bian-li-de-ce-lue-na-c/?envType=study-plan-v2&envId=coding-interviews
  */
 
 /**
