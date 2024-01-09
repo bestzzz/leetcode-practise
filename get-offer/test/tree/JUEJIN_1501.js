@@ -28,7 +28,7 @@ const permute = (nums) => {
   
   const dfs = (nth) => {
     if (nth === nums.length) {
-      res.push(cur);
+      res.push(cur.slice());
       return;
     }
 
