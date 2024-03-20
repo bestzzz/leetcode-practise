@@ -30,11 +30,15 @@ var pathTarget = function(root, target) {
   const res = [];
   const path = [];
 
+  // 求和函数
   const sum = () => path.reduce((res, cur) => res + cur, 0);
 
+  // 递归函数
+  // 这里另起函数的原因为：上面的res/path变量会被自身函数递归时重置
   const travers = (root) => {
     if (!root) return;
 
+    // 每次入栈时
     path.push(root.val);
 
     if (!root.left && !root.right && sum() === target) {
