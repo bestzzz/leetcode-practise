@@ -36,3 +36,23 @@ var calculateDepth = function(root) {
 
   return res;
 };
+
+
+const BFS = root => {
+  if (!root) return 0;
+  const queue = [root];
+  let res = 0;
+
+  while (queue.length) {
+    res++;
+    // 必须缓存下来当前长度
+    const size = queue.length;
+    for (let i = 0; i < size; i++) {
+      const cur = queue.shift();
+      cur.left && queue.push(cur.left);
+      cur.right && queue.push(cur.right);
+    }
+  }
+
+  return res;
+};
